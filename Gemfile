@@ -59,6 +59,7 @@ group :development do
   # For html2haml mass conversion
   # erubis is already included in action pack
   gem 'ruby_parser', '~> 3.1.1'
+
 end
 
 group :test do

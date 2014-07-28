@@ -1,6 +1,6 @@
 %h1 Consignees
 
-= link_to 'New Consignee', new_consignee_path
+= link_to 'New Consignee', new_consignee_path, class: "btn btn-default"
 
 %table.table.table-condensed.table-striped.table-hover.table-bordered
   %tr
@@ -10,9 +10,10 @@
 
   - @consignees.each do |consignee|
     %tr
-      %td= link_to 'Show', consignee
-      %td= link_to 'Edit', edit_consignee_path(consignee)
-      %td= link_to 'Destroy', consignee, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= consignee.id
+      %td= link_to consignee.name, edit_consignee_path(consignee)
+      - if current_user.try(:admin)
+        %td= link_to 'Destroy', consignee, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

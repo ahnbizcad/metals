@@ -34,7 +34,7 @@ end
 
 
 # Authentication.
-#gem 'devise'#, '3.2.3'
+gem 'devise'#, '3.2.3'
 
 
 group :development do

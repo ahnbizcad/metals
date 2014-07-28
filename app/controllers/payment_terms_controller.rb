@@ -4,7 +4,7 @@ class PaymentTermsController < ApplicationController
   # GET /payment_terms
   # GET /payment_terms.json
   def index
-    @payment_terms = PaymentTerm.all
+    @payment_terms = PaymentTerm.all.reverse_order
   end
 
   # GET /payment_terms/1
@@ -69,6 +69,6 @@ class PaymentTermsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_term_params
-      params[:payment_term].require(:payment_term).permit(:type, :text)
+      params.require(:payment_term).permit(:type, :text)
     end
 end

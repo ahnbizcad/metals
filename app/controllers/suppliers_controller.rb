@@ -4,7 +4,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.json
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.all.reverse_order
   end
 
   # GET /suppliers/1
@@ -69,6 +69,6 @@ class SuppliersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supplier_params
-      params[:supplier].require(:supplier).permit(:name)
+      params.require(:supplier).permit(:name)
     end
 end

@@ -4,7 +4,7 @@ class ContainersController < ApplicationController
   # GET /containers
   # GET /containers.json
   def index
-    @containers = Container.all
+    @containers = Container.all.reverse_order
   end
 
   # GET /containers/1
@@ -69,6 +69,6 @@ class ContainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def container_params
-      params[:container].require(:container).permit(:container_number)
+      params.require(:container).permit(:container_number)
     end
 end

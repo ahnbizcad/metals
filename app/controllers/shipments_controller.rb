@@ -4,7 +4,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments
   # GET /shipments.json
   def index
-    @shipments = Shipment.all
+    @shipments = Shipment.all.reverse_order
   end
 
   # GET /shipments/1
@@ -69,6 +69,6 @@ class ShipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shipment_params
-      params[:shipment].require(:shipment).permit()
+      params.require(:shipment).permit()
     end
 end

@@ -4,7 +4,7 @@ class PortOfLoadingsController < ApplicationController
   # GET /port_of_loadings
   # GET /port_of_loadings.json
   def index
-    @port_of_loadings = PortOfLoading.all
+    @port_of_loadings = PortOfLoading.all.reverse_order
   end
 
   # GET /port_of_loadings/1
@@ -69,6 +69,6 @@ class PortOfLoadingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def port_of_loading_params
-      params[:port_of_loading].require(:port_of_loading).permit()
+      params.require(:port_of_loading).permit()
     end
 end

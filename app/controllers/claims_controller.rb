@@ -4,7 +4,7 @@ class ClaimsController < ApplicationController
   # GET /claims
   # GET /claims.json
   def index
-    @claims = Claim.all
+    @claims = Claim.all.reverse_order
   end
 
   # GET /claims/1
@@ -69,6 +69,6 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
-      params[:claim].require(:claim).permit()
+      params.require(:claim).permit()
     end
 end

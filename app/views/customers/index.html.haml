@@ -1,6 +1,6 @@
 %h1 Customers
 
-= link_to 'New Customer', new_customer_path
+= link_to 'New Customer', new_customer_path, class: "btn btn-default"
 
 %table.table.table-condensed.table-striped.table-hover.table-bordered
   %tr
@@ -10,9 +10,10 @@
 
   - @customers.each do |customer|
     %tr
-      %td= link_to 'Show', customer
-      %td= link_to 'Edit', edit_customer_path(customer)
-      %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= customer.id
+      %td= link_to customer.name, edit_customer_path(customer)
+      - if current_user.try(:admin)
+        %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

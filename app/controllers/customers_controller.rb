@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.all.reverse_order
   end
 
   # GET /customers/1
@@ -69,6 +69,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params[:customer].require(:customer).permit(:name)
+      params.require(:customer).permit(:name)
     end
 end

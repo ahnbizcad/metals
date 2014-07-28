@@ -1,6 +1,6 @@
 %h1 Suppliers
 
-= link_to 'New Supplier', new_supplier_path
+= link_to 'New Supplier', new_supplier_path, class: "btn btn-default"
 
 %table.table.table-condensed.table-striped.table-hover.table-bordered
   %tr
@@ -11,8 +11,9 @@
   - @suppliers.each do |supplier|
     %tr
       %td= supplier.id
-      %td= link_to 'Edit', edit_supplier_path(supplier)
-      %td= link_to 'Destroy', supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to supplier.name, edit_supplier_path(supplier)
+      - if current_user.try(:admin)
+        %td= link_to 'Destroy', supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

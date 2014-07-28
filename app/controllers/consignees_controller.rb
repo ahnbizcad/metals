@@ -4,7 +4,7 @@ class ConsigneesController < ApplicationController
   # GET /consignees
   # GET /consignees.json
   def index
-    @consignees = Consignee.all
+    @consignees = Consignee.all.reverse_order
   end
 
   # GET /consignees/1
@@ -69,6 +69,6 @@ class ConsigneesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consignee_params
-      params[:consignee].require(:consignee).permit(:name)
+      params.require(:consignee).permit(:name)
     end
 end

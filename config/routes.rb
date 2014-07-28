@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :port_of_loadings
 
-  root to: "devise/sessions#new"
+  root to: "containers#index"
 
   
   resources :packings
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :sales
   resources :purchases
 
-  devise_for :user
+  #devise_for :user
 
 #  devise_for :user, :skip => [:sessions, :registration]
 #  devise_for :user, :path => '', :path_names => { :sign_in => "login", 

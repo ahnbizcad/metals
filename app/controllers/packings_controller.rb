@@ -4,7 +4,7 @@ class PackingsController < ApplicationController
   # GET /packings
   # GET /packings.json
   def index
-    @packings = Packing.all
+    @packings = Packing.all.reverse_order
   end
 
   # GET /packings/1
@@ -69,6 +69,6 @@ class PackingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def packing_params
-      params[:packing].require(:packing).permit(:type)
+      params.require(:packing).permit(:type)
     end
 end

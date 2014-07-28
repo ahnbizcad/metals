@@ -8,7 +8,8 @@
   %body
     = render 'layouts/header'
     = render 'layouts/navbar'
-          
+    .notice= notice
+    .alert= alert
     .container-fluid
       = yield
     = render 'layouts/footer'

@@ -4,7 +4,7 @@ class PortOfDischargesController < ApplicationController
   # GET /port_of_discharges
   # GET /port_of_discharges.json
   def index
-    @port_of_discharges = PortOfDischarge.all
+    @port_of_discharges = PortOfDischarge.all.reverse_order
   end
 
   # GET /port_of_discharges/1
@@ -69,6 +69,6 @@ class PortOfDischargesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def port_of_discharge_params
-      params[:port_of_discharge].require(:port_of_discharge).permit()
+      params.require(:port_of_discharge).permit()
     end
 end

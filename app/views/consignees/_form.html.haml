@@ -1,0 +1,12 @@
+= form_for @consignee do |f|
+  - if @consignee.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@consignee.errors.count, "error")} prohibited this consignee from being saved:"
+      %ul
+        - @consignee.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    = f.label :name
+    = f.text_field :name, autofocus: true
+  .actions
+    = f.submit 'Save'

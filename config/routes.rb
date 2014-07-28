@@ -1,7 +1,35 @@
 Rails.application.routes.draw do
+  resources :containers
+
+  resources :consignees
+
+  resources :payment_terms
+
+  resources :port_of_discharges
+
+  resources :port_of_loadings
+
   root to: "devise/sessions#new"
+
   
-  devise_for :users
+  resources :packings
+  resources :items
+  resources :customers
+  resources :suppliers
+
+  resources :claims
+  resources :shipments
+  resources :sales
+  resources :purchases
+
+  devise_for :user
+
+#  devise_for :user, :skip => [:sessions, :registration]
+#  devise_for :user, :path => '', :path_names => { :sign_in => "login", 
+#                                                :sign_out => "logout", 
+#                                                :sign_up => "register", 
+#                                                :account_update => "account-settings" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

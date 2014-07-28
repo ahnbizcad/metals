@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+  payment_terms = PaymentTerm.create([{name: 'L/C', text: 'L/C date'}, {name: 'T/T', text: ''}])

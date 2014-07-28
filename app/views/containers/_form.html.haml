@@ -1,0 +1,12 @@
+= form_for @container do |f|
+  - if @container.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@container.errors.count, "error")} prohibited this container from being saved:"
+      %ul
+        - @container.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    = f.label :container_number
+    = f.text_field :container_number
+  .actions
+    = f.submit 'Save'

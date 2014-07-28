@@ -19,3 +19,5 @@ secrets.yml
 # Ignore local images.
 /public/system
 /public/assets
+
+/vendor/temporary_clipboard

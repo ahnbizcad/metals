@@ -1,0 +1,12 @@
+%header
+  .container-fluid
+    .row
+      .col-xs-10 
+        = link_to "Paul&Julian Metals", root_path
+      .col-xs-2
+        .pull-right
+          - if user_signed_in?
+            = current_user.name
+            = link_to "Log Out", destroy_user_session_path
+          - else
+            = link_to "Log In", new_user_session_path

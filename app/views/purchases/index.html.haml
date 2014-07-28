@@ -1,0 +1,19 @@
+%h1 Listing purchases
+
+= link_to 'New Purchase', new_purchase_path
+
+%table.table.table-condensed.table-striped.table-hover.table-bordered
+  %tr
+    %th No.
+    %th 
+    %th 
+
+  - @purchases.each do |purchase|
+    %tr
+      %td= link_to 'Show', purchase
+      %td= link_to 'Edit', edit_purchase_path(purchase)
+      %td= link_to 'Destroy', purchase, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+

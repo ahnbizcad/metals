@@ -1,0 +1,19 @@
+%h1 Ports of Discharge
+
+= link_to 'New Port of discharge', new_port_of_discharge_path
+
+%table.table.table-condensed.table-striped.table-hover.table-bordered
+  %tr
+    %th No.
+    %th
+    %th
+
+  - @port_of_discharges.each do |port_of_discharge|
+    %tr
+      %td= link_to 'Show', port_of_discharge
+      %td= link_to 'Edit', edit_port_of_discharge_path(port_of_discharge)
+      %td= link_to 'Destroy', port_of_discharge, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+

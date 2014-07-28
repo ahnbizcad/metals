@@ -1,0 +1,19 @@
+%h1 Payment Terms
+
+= link_to 'New Payment term', new_payment_term_path
+
+%table.table.table-condensed.table-striped.table-hover.table-bordered
+  %tr
+    %th No.
+    %th
+    %th
+
+  - @payment_terms.each do |payment_term|
+    %tr
+      %td= link_to 'Show', payment_term
+      %td= link_to 'Edit', edit_payment_term_path(payment_term)
+      %td= link_to 'Destroy', payment_term, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+

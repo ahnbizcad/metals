@@ -1,0 +1,19 @@
+%h1 Suppliers
+
+= link_to 'New Supplier', new_supplier_path
+
+%table.table.table-condensed.table-striped.table-hover.table-bordered
+  %tr
+    %th No.
+    %th Name
+    %th
+
+  - @suppliers.each do |supplier|
+    %tr
+      %td= supplier.id
+      %td= link_to 'Edit', edit_supplier_path(supplier)
+      %td= link_to 'Destroy', supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+

@@ -1,0 +1,10 @@
+= form_for @port_of_loading do |f|
+  - if @port_of_loading.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@port_of_loading.errors.count, "error")} prohibited this port_of_loading from being saved:"
+      %ul
+        - @port_of_loading.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

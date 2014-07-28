@@ -1,0 +1,19 @@
+%h1 Ports of Loading
+
+= link_to 'New Port of loading', new_port_of_loading_path
+
+%table.table.table-condensed.table-striped.table-hover.table-bordered
+  %tr
+    %th No.
+    %th
+    %th
+
+  - @port_of_loadings.each do |port_of_loading|
+    %tr
+      %td= link_to 'Show', port_of_loading
+      %td= link_to 'Edit', edit_port_of_loading_path(port_of_loading)
+      %td= link_to 'Destroy', port_of_loading, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+

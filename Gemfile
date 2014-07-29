@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'pg', '0.17.1'
-gem 'heroku_secrets', git: 'https://github.com/alexpeattie/heroku_secrets.git'
+#gem 'heroku_secrets', git: 'https://github.com/alexpeattie/heroku_secrets.git'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

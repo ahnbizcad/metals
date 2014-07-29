@@ -13,7 +13,6 @@
 /log/*.log
 /tmp
 
-secrets.yml
 /config/database.yml
 
 # Ignore local images.

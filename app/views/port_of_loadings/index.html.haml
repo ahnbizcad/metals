@@ -11,7 +11,8 @@
   - @port_of_loadings.each do |port_of_loading|
     %tr
       %td= port_of_loading.id
-      %td= link_to port_of_loading.name, edit_port_of_loading_path(port_of_loading)
+      %td= link_to port_of_loading.city, edit_port_of_loading_path(port_of_loading)
+      %td= link_to port_of_loading.country, edit_port_of_loading_path(port_of_loading)
       - if current_user.try(:admin)
         %td= link_to 'Destroy', port_of_loading, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

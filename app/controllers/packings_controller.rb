@@ -69,6 +69,6 @@ class PackingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def packing_params
-      params.require(:packing).permit(:type)
+      params.require(:packing).permit(:packing_type)
     end
 end

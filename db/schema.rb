@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728121026) do
+ActiveRecord::Schema.define(version: 20140729180216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,26 +53,32 @@ ActiveRecord::Schema.define(version: 20140728121026) do
   create_table "packings", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
+    t.string   "packing_type"
   end
 
-  add_index "packings", ["type"], name: "index_packings_on_type", using: :btree
+  add_index "packings", ["packing_type"], name: "index_packings_on_packing_type", using: :btree
 
   create_table "payment_terms", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
     t.string   "text"
+    t.string   "payment_type"
   end
+
+  add_index "payment_terms", ["payment_type"], name: "index_payment_terms_on_payment_type", using: :btree
 
   create_table "port_of_discharges", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "city"
+    t.string   "country"
   end
 
   create_table "port_of_loadings", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "city"
+    t.string   "country"
   end
 
   create_table "purchases", force: true do |t|

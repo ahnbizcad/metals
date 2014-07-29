@@ -1,0 +1,13 @@
+= form_for @origin, html: { class: "form-horizontal" }  do |f|
+  - if @origin.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@origin.errors.count, "error")} prohibited this origin from being saved:"
+      %ul
+        - @origin.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    = f.label :location
+    = f.text_field :location, :autofocus => true
+
+  .actions
+    = f.submit 'Save'

@@ -7,6 +7,7 @@
           %li= msg
   .form-group
     = f.label :packing_type
-    = f.text_field :packing_type
+    = f.text_field :packing_type, autofocus: true
+    
   .actions
     = f.submit 'Save'

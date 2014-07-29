@@ -43,7 +43,7 @@ class ClaimsController < ApplicationController
   def update
     respond_to do |format|
       if @claim.update(claim_params)
-        format.html { redirect_to @claim, notice: 'Claim was successfully updated.' }
+        format.html { redirect_to claims_path, notice: 'Claim was successfully updated.' }
         format.json { render :show, status: :ok, location: @claim }
       else
         format.html { render :edit }
@@ -72,4 +72,5 @@ class ClaimsController < ApplicationController
     def claim_params
       params.require(:claim).permit()
     end
+
 end

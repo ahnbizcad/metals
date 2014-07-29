@@ -43,7 +43,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
+        format.html { redirect_to customers_path, notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit }
@@ -72,4 +72,5 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit(:name)
     end
+
 end

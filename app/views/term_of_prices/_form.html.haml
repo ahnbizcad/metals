@@ -7,7 +7,9 @@
           %li= msg
   .form-group
     = f.label :term
-    = f.text_field :term, autofocus: true
-
+    = f.text_field :term, autofocus: true 
+  .form-group
+    = f.label :text
+    = f.text_field :text
   .actions
     = f.submit 'Save'

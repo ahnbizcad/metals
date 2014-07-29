@@ -43,7 +43,7 @@ class PurchasesController < ApplicationController
   def update
     respond_to do |format|
       if @purchase.update(purchase_params)
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
+        format.html { redirect_to purchases_path, notice: 'Purchase was successfully updated.' }
         format.json { render :show, status: :ok, location: @purchase }
       else
         format.html { render :edit }
@@ -72,4 +72,5 @@ class PurchasesController < ApplicationController
     def purchase_params
       params.require(:purchase).permit(:date_of_purchase)
     end
+
 end

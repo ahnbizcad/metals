@@ -10,15 +10,16 @@ Total Containers:
 %table.table.table-condensed.table-striped.table-hover.table-bordered
   %tr
     %th No.
-    %th
-    %th
+    %th Container #
+    %th 
 
   - @containers.each do |container|
     %tr
       %td= container.id
       %td= link_to container.container_number, edit_container_path(container)
-      - if current_user.try(:admin)
-        %td= link_to 'Destroy', container, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      -# if current_user.try(:admin)
+      %td= link_to 'Edit', edit_container_path(container)
+      %td= link_to 'Destroy', container, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

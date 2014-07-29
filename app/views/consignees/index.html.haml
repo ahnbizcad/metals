@@ -10,15 +10,16 @@ Total Consignees:
 %table.table.table-condensed.table-striped.table-hover.table-bordered
   %tr
     %th No.
-    %th
+    %th Name
     %th
 
   - @consignees.each do |consignee|
     %tr
       %td= consignee.id
       %td= link_to consignee.name, edit_consignee_path(consignee)
-      - if current_user.try(:admin)
-        %td= link_to 'Destroy', consignee, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      -# if current_user.try(:admin)
+      %td= link_to 'Edit', edit_consignee_path(consignee)
+      %td= link_to 'Destroy', consignee, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

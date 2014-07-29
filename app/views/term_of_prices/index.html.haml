@@ -11,14 +11,16 @@ Total Terms of Price:
   %tr
     %th No.
     %th Term
-    %th
+    %th Text
 
   - @term_of_prices.each do |term_of_price|
     %tr
       %td= term_of_price.id
       %td= term_of_price.term
       %td= term_of_price.text
-      %td= term_of_price.date
+      -# if current_user.try(:admin)
+      %td= link_to 'Edit', edit_term_of_price_path(term_of_price)
+      %td= link_to 'Destroy', term_of_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

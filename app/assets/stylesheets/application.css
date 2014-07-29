@@ -24,6 +24,11 @@ body {
 
 }
 
+nav { 
+  background-color: #555;
+  
+}
+
 main {
 
   min-height: 800px;

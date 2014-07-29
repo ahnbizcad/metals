@@ -1,11 +1,11 @@
 class PortOfDischargesController < ApplicationController
   before_action :set_port_of_discharge, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /port_of_discharges
   # GET /port_of_discharges.json
   def index
     @port_of_discharges = PortOfDischarge.all.reverse_order
-    @count = PortofDischarge.count
+    @count = PortOfDischarge.count
   end
 
   # GET /port_of_discharges/1
@@ -43,7 +43,7 @@ class PortOfDischargesController < ApplicationController
   def update
     respond_to do |format|
       if @port_of_discharge.update(port_of_discharge_params)
-        format.html { redirect_to @port_of_discharge, notice: 'Port of discharge was successfully updated.' }
+        format.html { redirect_to port_of_discharges_path, notice: 'Port of discharge was successfully updated.' }
         format.json { render :show, status: :ok, location: @port_of_discharge }
       else
         format.html { render :edit }
@@ -70,6 +70,7 @@ class PortOfDischargesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def port_of_discharge_params
-      params.require(:port_of_discharge).permit()
+      params.require(:port_of_discharge).permit(:city, :country)
     end
+
 end

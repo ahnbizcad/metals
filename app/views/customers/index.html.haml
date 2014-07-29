@@ -10,15 +10,16 @@ Total Customers:
 %table.table.table-condensed.table-striped.table-hover.table-bordered
   %tr
     %th No.
-    %th
+    %th Name
     %th
 
   - @customers.each do |customer|
     %tr
       %td= customer.id
       %td= link_to customer.name, edit_customer_path(customer)
-      - if current_user.try(:admin)
-        %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      -# if current_user.try(:admin)
+      %td= link_to 'Edit', edit_customer_path(customer)
+      %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

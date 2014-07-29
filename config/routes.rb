@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :origins
+
   resources :term_of_prices
 
   resources :containers

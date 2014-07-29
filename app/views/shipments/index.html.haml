@@ -16,6 +16,7 @@ Total Shipments:
   - @shipments.each do |shipment|
     %tr
       %td= link_to 'Show', shipment
+      -# if current_user.try(:admin)
       %td= link_to 'Edit', edit_shipment_path(shipment)
       %td= link_to 'Destroy', shipment, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

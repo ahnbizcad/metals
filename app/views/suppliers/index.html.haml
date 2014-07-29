@@ -18,6 +18,7 @@ Total Suppliers:
       %td= supplier.id
       %td= link_to supplier.name, edit_supplier_path(supplier)
       -# if current_user.try(:admin)
+      %td= link_to 'Edit', edit_supplier_path(supplier)
       %td= link_to 'Destroy', supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

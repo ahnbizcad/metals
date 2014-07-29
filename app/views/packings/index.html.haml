@@ -17,8 +17,9 @@ Total Packings:
     %tr
       %td= packing.id
       %td= link_to packing.packing_type, edit_packing_path(packing)
-      - if current_user.try(:admin)
-        %td= link_to 'Destroy', packing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      -# if current_user.try(:admin)
+      %td= link_to 'Edit', edit_packing_path(packing)
+      %td= link_to 'Destroy', packing, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

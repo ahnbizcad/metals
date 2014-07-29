@@ -43,7 +43,7 @@ class PackingsController < ApplicationController
   def update
     respond_to do |format|
       if @packing.update(packing_params)
-        format.html { redirect_to @packing, notice: 'Packing was successfully updated.' }
+        format.html { redirect_to packings_path, notice: 'Packing was successfully updated.' }
         format.json { render :show, status: :ok, location: @packing }
       else
         format.html { render :edit }
@@ -72,4 +72,5 @@ class PackingsController < ApplicationController
     def packing_params
       params.require(:packing).permit(:packing_type)
     end
+
 end

@@ -16,8 +16,9 @@ Total Claims:
   - @claims.each do |claim|
     %tr
       %td= link_to 'Show', claim
+      -# if current_user.try(:admin)
       %td= link_to 'Edit', edit_claim_path(claim)
-      %td= link_to 'Destroy', claim, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Destroy', supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

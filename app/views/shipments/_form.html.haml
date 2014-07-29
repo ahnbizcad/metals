@@ -6,5 +6,8 @@
         - @shipment.errors.full_messages.each do |msg|
           %li= msg
 
+  .form-group
+    = f.label :date
+
   .actions
     = f.submit 'Save'

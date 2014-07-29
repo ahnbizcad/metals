@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729205155) do
+ActiveRecord::Schema.define(version: 20140729215647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,18 @@ ActiveRecord::Schema.define(version: 20140729205155) do
   create_table "items", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
+
+  add_index "items", ["name"], name: "index_items_on_name", using: :btree
+
+  create_table "origins", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "location"
+  end
+
+  add_index "origins", ["location"], name: "index_origins_on_location", using: :btree
 
   create_table "packings", force: true do |t|
     t.datetime "created_at"
@@ -103,7 +114,6 @@ ActiveRecord::Schema.define(version: 20140729205155) do
     t.datetime "updated_at"
     t.string   "term"
     t.string   "text"
-    t.string   "date"
   end
 
   create_table "users", force: true do |t|

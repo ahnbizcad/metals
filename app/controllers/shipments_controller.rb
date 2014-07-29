@@ -43,7 +43,7 @@ class ShipmentsController < ApplicationController
   def update
     respond_to do |format|
       if @shipment.update(shipment_params)
-        format.html { redirect_to @shipment, notice: 'Shipment was successfully updated.' }
+        format.html { redirect_to shipments_path, notice: 'Shipment was successfully updated.' }
         format.json { render :show, status: :ok, location: @shipment }
       else
         format.html { render :edit }
@@ -72,4 +72,5 @@ class ShipmentsController < ApplicationController
     def shipment_params
       params.require(:shipment).permit(:date)
     end
+
 end

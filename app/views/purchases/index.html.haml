@@ -16,6 +16,7 @@ Total Purchases:
   - @purchases.each do |purchase|
     %tr
       %td= link_to 'Show', purchase
+      -# if current_user.try(:admin)
       %td= link_to 'Edit', edit_purchase_path(purchase)
       %td= link_to 'Destroy', purchase, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

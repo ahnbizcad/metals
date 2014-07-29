@@ -43,7 +43,7 @@ class PortOfLoadingsController < ApplicationController
   def update
     respond_to do |format|
       if @port_of_loading.update(port_of_loading_params)
-        format.html { redirect_to @port_of_loading, notice: 'Port of loading was successfully updated.' }
+        format.html { redirect_to port_of_loadings_path, notice: 'Port of loading was successfully updated.' }
         format.json { render :show, status: :ok, location: @port_of_loading }
       else
         format.html { render :edit }
@@ -72,4 +72,5 @@ class PortOfLoadingsController < ApplicationController
     def port_of_loading_params
       params.require(:port_of_loading).permit(:city, :country)
     end
+
 end

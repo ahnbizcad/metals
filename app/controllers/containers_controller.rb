@@ -43,7 +43,7 @@ class ContainersController < ApplicationController
   def update
     respond_to do |format|
       if @container.update(container_params)
-        format.html { redirect_to @container, notice: 'Container was successfully updated.' }
+        format.html { redirect_to containers_path, notice: 'Container was successfully updated.' }
         format.json { render :show, status: :ok, location: @container }
       else
         format.html { render :edit }
@@ -72,4 +72,5 @@ class ContainersController < ApplicationController
     def container_params
       params.require(:container).permit(:container_number)
     end
+
 end

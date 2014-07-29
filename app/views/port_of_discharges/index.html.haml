@@ -16,9 +16,11 @@ Total Ports of Discharge:
   - @port_of_discharges.each do |port_of_discharge|
     %tr
       %td= port_of_discharge.id
-      %td= link_to port_of_discharge.name, edit_port_of_discharge_path(port_of_discharge)
-      - if current_user.try(:admin)
-        %td= link_to 'Destroy', port_of_discharge, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to port_of_discharge.city, edit_port_of_discharge_path(port_of_discharge)
+      %td= link_to port_of_discharge.country, edit_port_of_discharge_path(port_of_discharge)
+      -# if current_user.try(:admin)
+      %td= link_to 'Edit', edit_port_of_discharge_path(port_of_discharge)
+      %td= link_to 'Destroy', port_of_discharge, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

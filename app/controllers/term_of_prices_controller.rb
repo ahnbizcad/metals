@@ -43,7 +43,7 @@ class TermOfPricesController < ApplicationController
   def update
     respond_to do |format|
       if @term_of_price.update(term_of_price_params)
-        format.html { redirect_to @term_of_price, notice: 'Term of price was successfully updated.' }
+        format.html { redirect_to term_of_prices_path, notice: 'Term of price was successfully updated.' }
         format.json { render :show, status: :ok, location: @term_of_price }
       else
         format.html { render :edit }
@@ -72,4 +72,5 @@ class TermOfPricesController < ApplicationController
     def term_of_price_params
       params.require(:term_of_price).permit(:term, :text, :date)
     end
+
 end

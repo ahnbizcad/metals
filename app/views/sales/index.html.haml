@@ -16,6 +16,7 @@ Total Sales:
   - @sales.each do |sale|
     %tr
       %td= link_to 'Show', sale
+      -# if current_user.try(:admin)
       %td= link_to 'Edit', edit_sale_path(sale)
       %td= link_to 'Destroy', sale, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

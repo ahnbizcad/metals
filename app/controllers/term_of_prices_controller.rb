@@ -4,7 +4,8 @@ class TermOfPricesController < ApplicationController
   # GET /term_of_prices
   # GET /term_of_prices.json
   def index
-    @term_of_prices = TermOfPrice.all
+    @term_of_prices = TermOfPrice.all.reverse_order
+    @count = TermOfPrice.count
   end
 
   # GET /term_of_prices/1
@@ -28,7 +29,7 @@ class TermOfPricesController < ApplicationController
 
     respond_to do |format|
       if @term_of_price.save
-        format.html { redirect_to @term_of_price, notice: 'Term of price was successfully created.' }
+        format.html { redirect_to term_of_prices_path, notice: 'Term of price was successfully created.' }
         format.json { render :show, status: :created, location: @term_of_price }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class TermOfPricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def term_of_price_params
-      params[:term_of_price]
+      params.require(:term_of_price).permit(:term, :text, :date)
     end
 end

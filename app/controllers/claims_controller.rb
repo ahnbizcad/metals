@@ -5,6 +5,7 @@ class ClaimsController < ApplicationController
   # GET /claims.json
   def index
     @claims = Claim.all.reverse_order
+    @count = Claim.count
   end
 
   # GET /claims/1
@@ -28,7 +29,7 @@ class ClaimsController < ApplicationController
 
     respond_to do |format|
       if @claim.save
-        format.html { redirect_to @claim, notice: 'Claim was successfully created.' }
+        format.html { redirect_to claims_path, notice: 'Claim was successfully created.' }
         format.json { render :show, status: :created, location: @claim }
       else
         format.html { render :new }

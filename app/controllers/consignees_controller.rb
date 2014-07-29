@@ -5,6 +5,7 @@ class ConsigneesController < ApplicationController
   # GET /consignees.json
   def index
     @consignees = Consignee.all.reverse_order
+    @count = Consignee.count
   end
 
   # GET /consignees/1
@@ -28,7 +29,7 @@ class ConsigneesController < ApplicationController
 
     respond_to do |format|
       if @consignee.save
-        format.html { redirect_to @consignee, notice: 'Consignee was successfully created.' }
+        format.html { redirect_to consignees_path, notice: 'Consignee was successfully created.' }
         format.json { render :show, status: :created, location: @consignee }
       else
         format.html { render :new }

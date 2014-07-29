@@ -1,0 +1,24 @@
+%h1 Terms of Price
+
+= link_to 'New Term of Price', new_term_of_price_path
+Total Terms of Price:
+= @count
+
+%br
+%br
+
+%table.table.table-condensed.table-striped.table-hover.table-bordered
+  %tr
+    %th No.
+    %th Term
+    %th
+
+  - @term_of_prices.each do |term_of_price|
+    %tr
+      %td= term_of_price.id
+      %td= term_of_price.term
+      %td= term_of_price.text
+      %td= term_of_price.date
+
+%br
+

@@ -5,6 +5,7 @@ class PackingsController < ApplicationController
   # GET /packings.json
   def index
     @packings = Packing.all.reverse_order
+    @count = Packing.count
   end
 
   # GET /packings/1
@@ -28,7 +29,7 @@ class PackingsController < ApplicationController
 
     respond_to do |format|
       if @packing.save
-        format.html { redirect_to @packing, notice: 'Packing was successfully created.' }
+        format.html { redirect_to packings_path, notice: 'Packing was successfully created.' }
         format.json { render :show, status: :created, location: @packing }
       else
         format.html { render :new }

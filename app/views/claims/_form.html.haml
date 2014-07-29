@@ -1,4 +1,4 @@
-= form_for @claim do |f|
+= form_for @claim, html: { class: "form-horizontal" } do |f|
   - if @claim.errors.any?
     #error_explanation
       %h2= "#{pluralize(@claim.errors.count, "error")} prohibited this claim from being saved:"

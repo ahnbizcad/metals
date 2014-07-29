@@ -5,6 +5,7 @@ class PortOfDischargesController < ApplicationController
   # GET /port_of_discharges.json
   def index
     @port_of_discharges = PortOfDischarge.all.reverse_order
+    @count = PortofDischarge.count
   end
 
   # GET /port_of_discharges/1
@@ -28,7 +29,7 @@ class PortOfDischargesController < ApplicationController
 
     respond_to do |format|
       if @port_of_discharge.save
-        format.html { redirect_to @port_of_discharge, notice: 'Port of discharge was successfully created.' }
+        format.html { redirect_to port_of_discharges_path, notice: 'Port of discharge was successfully created.' }
         format.json { render :show, status: :created, location: @port_of_discharge }
       else
         format.html { render :new }

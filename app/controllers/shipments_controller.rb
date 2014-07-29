@@ -5,6 +5,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments.json
   def index
     @shipments = Shipment.all.reverse_order
+    @count = Shipment.count
   end
 
   # GET /shipments/1
@@ -28,7 +29,7 @@ class ShipmentsController < ApplicationController
 
     respond_to do |format|
       if @shipment.save
-        format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
+        format.html { redirect_to shipments_path, notice: 'Shipment was successfully created.' }
         format.json { render :show, status: :created, location: @shipment }
       else
         format.html { render :new }

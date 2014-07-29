@@ -1,4 +1,4 @@
-= form_for @consignee do |f|
+= form_for @consignee, html: { class: "form-horizontal" } do |f|
   - if @consignee.errors.any?
     #error_explanation
       %h2= "#{pluralize(@consignee.errors.count, "error")} prohibited this consignee from being saved:"

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PaymentTermTest < ActiveSupport::TestCase
+class TermOfPriceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,6 +1,11 @@
 %h1 Sales
 
 = link_to 'New Sale', new_sale_path, class: "btn btn-default"
+Total Sales:
+= @count
+
+%br
+%br
 
 %table.table.table-condensed.table-striped.table-hover.table-bordered
   %tr
@@ -13,7 +18,7 @@
       %td= link_to 'Show', sale
       %td= link_to 'Edit', edit_sale_path(sale)
       %td= link_to 'Destroy', sale, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      
+
 %br
 
 

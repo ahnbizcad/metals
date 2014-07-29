@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729180216) do
+ActiveRecord::Schema.define(version: 20140729205155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,15 +58,6 @@ ActiveRecord::Schema.define(version: 20140729180216) do
 
   add_index "packings", ["packing_type"], name: "index_packings_on_packing_type", using: :btree
 
-  create_table "payment_terms", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "text"
-    t.string   "payment_type"
-  end
-
-  add_index "payment_terms", ["payment_type"], name: "index_payment_terms_on_payment_type", using: :btree
-
   create_table "port_of_discharges", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -84,7 +75,10 @@ ActiveRecord::Schema.define(version: 20140729180216) do
   create_table "purchases", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date_of_purchase"
   end
+
+  add_index "purchases", ["date_of_purchase"], name: "index_purchases_on_date_of_purchase", using: :btree
 
   create_table "sales", force: true do |t|
     t.datetime "created_at"
@@ -103,6 +97,14 @@ ActiveRecord::Schema.define(version: 20140729180216) do
   end
 
   add_index "suppliers", ["name"], name: "index_suppliers_on_name", using: :btree
+
+  create_table "term_of_prices", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "term"
+    t.string   "text"
+    t.string   "date"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

@@ -5,6 +5,7 @@ class PortOfLoadingsController < ApplicationController
   # GET /port_of_loadings.json
   def index
     @port_of_loadings = PortOfLoading.all.reverse_order
+    @count = PortOfLoading.count
   end
 
   # GET /port_of_loadings/1
@@ -28,7 +29,7 @@ class PortOfLoadingsController < ApplicationController
 
     respond_to do |format|
       if @port_of_loading.save
-        format.html { redirect_to @port_of_loading, notice: 'Port of loading was successfully created.' }
+        format.html { redirect_to port_of_loadings_path, notice: 'Port of loading was successfully created.' }
         format.json { render :show, status: :created, location: @port_of_loading }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class PortOfLoadingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def port_of_loading_params
-      params.require(:port_of_loading).permit()
+      params.require(:port_of_loading).permit(:city, :country)
     end
 end

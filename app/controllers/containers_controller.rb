@@ -5,6 +5,7 @@ class ContainersController < ApplicationController
   # GET /containers.json
   def index
     @containers = Container.all.reverse_order
+    @count = Container.count
   end
 
   # GET /containers/1
@@ -28,7 +29,7 @@ class ContainersController < ApplicationController
 
     respond_to do |format|
       if @container.save
-        format.html { redirect_to @container, notice: 'Container was successfully created.' }
+        format.html { redirect_to containers_path, notice: 'Container was successfully created.' }
         format.json { render :show, status: :created, location: @container }
       else
         format.html { render :new }

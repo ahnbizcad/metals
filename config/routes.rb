@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :term_of_prices
+
   resources :containers
 
   resources :consignees
-
-  resources :payment_terms
 
   resources :port_of_discharges
 

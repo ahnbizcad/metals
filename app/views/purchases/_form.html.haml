@@ -1,4 +1,4 @@
-= form_for @purchase do |f|
+= form_for @purchase, html: { class: "form-horizontal" } do |f|
   - if @purchase.errors.any?
     #error_explanation
       %h2= "#{pluralize(@purchase.errors.count, "error")} prohibited this purchase from being saved:"
@@ -7,10 +7,10 @@
           %li= msg
 
   .form-group
-    =# f.label :date
-    =# f.date_select :date, autofocus: true
+    = f.label :date_of_purchase
+    = f.date_field :date_of_purchase, autofocus: true
   .form-group
-  
+
   .form-group
 
   .form-group

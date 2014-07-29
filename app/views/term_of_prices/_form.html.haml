@@ -1,0 +1,13 @@
+= form_for @term_of_price do |f|
+  - if @term_of_price.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@term_of_price.errors.count, "error")} prohibited this term_of_price from being saved:"
+      %ul
+        - @term_of_price.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    = f.label :term
+    = f.text_field :term, autofocus: true
+
+  .actions
+    = f.submit 'Save'

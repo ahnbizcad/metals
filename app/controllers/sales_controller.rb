@@ -5,6 +5,7 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @sales = Sale.all.reverse_order
+    @count = Sale.count
   end
 
   # GET /sales/1
@@ -28,7 +29,7 @@ class SalesController < ApplicationController
 
     respond_to do |format|
       if @sale.save
-        format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
+        format.html { redirect_to sales_path, notice: 'Sale was successfully created.' }
         format.json { render :show, status: :created, location: @sale }
       else
         format.html { render :new }

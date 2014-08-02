@@ -4,7 +4,7 @@ class ClaimsController < ApplicationController
   # GET /claims
   # GET /claims.json
   def index
-    @claims = Claim.all.reverse_order
+    @claims = Claim.all.reverse_order.page(params[:page]).per(20)
     @count = Claim.count
   end
 

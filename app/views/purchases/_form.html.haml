@@ -7,21 +7,44 @@
           %li= msg
 
   .form-group
-    = f.label :date_of_purchase
-    = f.date_field :date_of_purchase, autofocus: true
-  .form-group
+    = f.label :date_of_purchase, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.date_field :date_of_purchase, autofocus: true, class: "form-control" 
 
   .form-group
+    = f.label :po, "Pul & Julian PO#", class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :po, class: "form-control" 
 
   .form-group
+    = f.label :supplier_id, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :supplier_id, class: "form-control" 
+  
+  .form-group
+    = f.label :item_id, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :item_id, class: "form-control" 
 
   .form-group
+    = f.label :purchase_price, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :purchase_price, class: "form-control" 
 
   .form-group
+    = f.label :lme_3m_price, "LME 3M price", class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :lme_3m_price, class: "form-control" 
 
   .form-group
+    = f.label :container_count, "# of Containers", class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :container_count, class: "form-control" 
 
   .form-group
+    = f.label :ship_to, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :ship_to, class: "form-control" 
 
   .actions
     = f.submit 'Save'

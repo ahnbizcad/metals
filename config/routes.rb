@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :port_of_loadings
 
-  root to: "containers#index"
+  root to: "sales#index"
 
   
   resources :packings

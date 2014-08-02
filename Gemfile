@@ -35,7 +35,8 @@ end
 
 # Authentication.
 gem 'devise'#, '3.2.3'
-
+# Pagination
+gem 'kaminari'
 
 group :development do
   # Better errors on browser

@@ -6,7 +6,7 @@ class Sale < ActiveRecord::Base
 
   private
     def uppercase_stuff
-      self.location = self.location.upcase
+      self.po = self.po.upcase
     end
 
 end

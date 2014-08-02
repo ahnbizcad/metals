@@ -5,8 +5,14 @@
       %ul
         - @supplier.errors.full_messages.each do |msg|
           %li= msg
+
   .form-group
     = f.label :name
     = f.text_field :name, autofocus: true
+
+  .form-group
+    = f.label :date, class: "control-label col-xs-2" 
+    .col-xs-10
+    
   .actions
     = f.submit 'Save'

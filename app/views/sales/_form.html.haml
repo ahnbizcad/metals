@@ -5,22 +5,56 @@
       %ul
         - @sale.errors.full_messages.each do |msg|
           %li= msg
-  .form-group
-    = f.label :date
-    
-  .form-group
-    
-  .form-group
 
   .form-group
+    = f.label :date_of_sale, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.date_field :date_of_sale, autofocus: true, class: "form-control" 
 
   .form-group
+    = f.label :c_po, "C PO", class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :c_po, class: "form-control"
 
   .form-group
+    = f.label :po, "Pul & Julian PO#", class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :po, class: "form-control" 
 
   .form-group
+    = f.label :supplier_id, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :supplier_id, class: "form-control" 
 
   .form-group
+    = f.label :item_id, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :item_id, class: "form-control" 
+
+  .form-group
+    = f.label :sale_price, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :sale_price, class: "form-control" 
+
+  .form-group
+    = f.label :origin_id, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :origin_id, class: "form-control" 
+
+  .form-group
+    = f.label :term_of_price_id, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :term_of_price_id, class: "form-control" 
+
+  .form-group
+    = f.label :container_count, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :container_count, class: "form-control" 
+
+  .form-group
+    = f.label :ship_to, class: "control-label col-xs-2" 
+    .col-xs-10
+      = f.text_field :ship_to, class: "form-control" 
 
   .actions
     = f.submit 'Save'

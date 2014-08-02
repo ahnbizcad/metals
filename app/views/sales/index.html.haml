@@ -10,12 +10,30 @@ Total Sales:
 %table.table.table-condensed.table-striped.table-hover.table-bordered
   %tr
     %th No.
-    %th
-    %th
+    %th Date
+    %th C PO#
+    %th PJ PO#
+    %th Supplier
+    %th Item
+    %th Price
+    %th Origin
+    %th Term of Price
+    %th # of Containers
+    %th Ship To
 
   - @sales.each do |sale|
     %tr
-      %td= link_to 'Show', sale
+      %td= sale.id
+      %td= sale.date_of_sale
+      %td= sale.c_po
+      %td= sale.po
+      %td=# sale.supplier.name
+      %td=# sale.item.name
+      %td=# sale.sale_price
+      %td=# sale.origin.location
+      %td=# sale.term_of_price.term
+      %td= sale.container_count
+      %td= sale.ship_to
       -# if current_user.try(:admin)
       %td= link_to 'Edit', edit_sale_path(sale)
       %td= link_to 'Destroy', sale, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729215647) do
+ActiveRecord::Schema.define(version: 20140729235549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,14 +87,37 @@ ActiveRecord::Schema.define(version: 20140729215647) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date_of_purchase"
+    t.integer  "supplier_id"
+    t.integer  "item_id"
+    t.string   "po"
+    t.float    "purchase_price"
+    t.float    "lme_3m_price"
+    t.integer  "container_count"
+    t.string   "ship_to"
   end
 
   add_index "purchases", ["date_of_purchase"], name: "index_purchases_on_date_of_purchase", using: :btree
+  add_index "purchases", ["po"], name: "index_purchases_on_po", using: :btree
 
   create_table "sales", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "customer_id"
+    t.integer  "supplier_id"
+    t.integer  "item_id"
+    t.integer  "origin_id"
+    t.integer  "term_of_price_id"
+    t.string   "po"
+    t.string   "c_po"
+    t.date     "date_of_sale"
+    t.float    "sale_price"
+    t.integer  "container_count"
+    t.string   "ship_to"
   end
+
+  add_index "sales", ["c_po"], name: "index_sales_on_c_po", using: :btree
+  add_index "sales", ["date_of_sale"], name: "index_sales_on_date_of_sale", using: :btree
+  add_index "sales", ["po"], name: "index_sales_on_po", using: :btree
 
   create_table "shipments", force: true do |t|
     t.datetime "created_at"

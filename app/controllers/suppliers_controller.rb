@@ -4,7 +4,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.json
   def index
-    @suppliers = Supplier.all.reverse_order
+    @suppliers = Supplier.all.reverse_order.page(params[:page]).per(1)
     @count = Supplier.count
   end
 

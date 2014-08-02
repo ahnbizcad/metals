@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
-    @purchases = Purchase.all.reverse_order
+    @purchases = Purchase.all.reverse_order.page(params[:page]).per(20)
     @count = Purchase.count
   end
 
@@ -70,7 +70,7 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:date_of_purchase)
+      params.require(:purchase).permit(:date_of_purchase, :po, :supplier_id, :item_id, :purchase_price, :lme_3m_price, :container_count, :ship_to)
     end
 
 end
